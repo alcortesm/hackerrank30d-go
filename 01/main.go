@@ -34,6 +34,9 @@ func main() {
 	fmt.Printf("%.1f\n", d+dd)
 
 	fmt.Print(s)
+	// We could substitute this whole for loop with a simple
+	// io.Copy(os.Stdout, os.Stdin) if we were allowed to use
+	// the io package.
 	for {
 		chunk, moreInput, err := scanner.ReadLine()
 		if err != nil {
