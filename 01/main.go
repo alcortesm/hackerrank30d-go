@@ -17,7 +17,7 @@ func main() {
 	// and quite confusing as there is no need to buffer the stdin. As a
 	// consecuence, the code below fells awkard. Also the tips in the
 	// exercise don't allow to process the input as a stream, which can
-	// to running out of memory.
+	// lead to running out of memory if the input string is very long.
 
 	var ii uint32
 	if _, err := fmt.Scanf("%d\n", &ii); err != nil {
