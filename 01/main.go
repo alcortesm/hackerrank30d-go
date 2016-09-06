@@ -15,44 +15,38 @@ func main() {
 
 	// The above code is pretty limiting (in terms of available imports)
 	// and quite confusing as there is no need to buffer the stdin. As a
-	// consecuence, the code below fells awkard.
+	// consecuence, the code below fells awkard. Also the tips in the
+	// exercise don't allow to process the input as a stream, which can
+	// to running out of memory.
 
 	var ii uint32
 	if _, err := fmt.Scanf("%d\n", &ii); err != nil {
 		fmt.Fprintln(os.Stderr, err)
 		os.Exit(1)
 	}
+	fmt.Printf("%d\n", i+ii)
 
 	var dd float32
 	if _, err := fmt.Scanf("%f\n", &dd); err != nil {
 		fmt.Fprintln(os.Stderr, err)
 		os.Exit(1)
 	}
+	fmt.Printf("%.1f\n", d+dd)
 
-	// read a string in chunks, no matter how long it is, as long as
-	// there is enough memory for it.
-	chunks := [][]byte{}
+	fmt.Print(s)
 	for {
-		part, moreInput, err := scanner.ReadLine()
+		chunk, moreInput, err := scanner.ReadLine()
 		if err != nil {
 			fmt.Fprintln(os.Stderr, err)
 			os.Exit(1)
 		}
 
-		clone := make([]byte, len(part))
-		copy(clone, part)
-		chunks = append(chunks, clone)
+		fmt.Print(string(chunk))
 
 		if !moreInput {
 			break
 		}
 	}
 
-	fmt.Printf("%d\n", i+ii)
-	fmt.Printf("%.1f\n", d+dd)
-	fmt.Print(s)
-	for _, c := range chunks {
-		fmt.Print(string(c))
-	}
 	fmt.Println()
 }
