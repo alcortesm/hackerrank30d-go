@@ -3,6 +3,7 @@ package main
 import (
 	"bufio"
 	"fmt"
+	"io"
 	"log"
 	"os"
 )
@@ -10,7 +11,7 @@ import (
 func main() {
 	r := bufio.NewReader(os.Stdin)
 	line, err := r.ReadString('\n')
-	if err != nil {
+	if err != nil && err != io.EOF {
 		log.Fatal(err)
 	}
 
