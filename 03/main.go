@@ -16,17 +16,9 @@ func main() {
 		log.Fatalf("input should be >= 1 and <=100, but was %d\n", n)
 	}
 
-	if isOdd(n) {
+	if isWeird(n) {
 		fmt.Println("Weird")
-		return
-	}
-
-	switch {
-	case n >= 2 && n <= 5:
-		fmt.Println("Not Weird")
-	case n >= 6 && n <= 20:
-		fmt.Println("Weird")
-	case n > 20:
+	} else {
 		fmt.Println("Not Weird")
 	}
 }
@@ -37,4 +29,8 @@ func isInvalid(n int) bool {
 
 func isOdd(n int) bool {
 	return n%2 != 0
+}
+
+func isWeird(n int) bool {
+	return isOdd(n) || (n >= 6 && n <= 20)
 }
