@@ -5,16 +5,13 @@ import (
 	"log"
 )
 
-// hackerrank tests are failing on this solution, even though it is
-// correct. I'm pretty sure they have some bug in their test system or
-// in their recursion detection system.
 func main() {
 	n, err := readFactInput()
 	if err != nil {
 		log.Fatal(err)
 	}
 
-	fmt.Print(fact(n))
+	fmt.Print(factorial(n))
 }
 
 func readFactInput() (int, error) {
@@ -35,9 +32,9 @@ func checkFactInput(n int) error {
 	return nil
 }
 
-func fact(n int) int {
+func factorial(n int) int {
 	if n == 0 {
 		return 1
 	}
-	return n * fact(n-1)
+	return n * factorial(n-1)
 }
