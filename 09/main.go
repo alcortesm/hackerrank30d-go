@@ -5,6 +5,9 @@ import (
 	"log"
 )
 
+// hackerrank tests are failing on this solution, even though it is
+// correct. I'm pretty sure they have some bug in their test system or
+// in their recursion detection system.
 func main() {
 	n, err := readFactInput()
 	if err != nil {
